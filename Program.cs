@@ -11,7 +11,7 @@ namespace LeetCodeSolutions
     {
         static void Main(string[] args)
         {
-            TwoSumSolution.CallSolution();
+            ValidSudoku.CallSolution();
         }
         public static void SumOfRevLinkedListNumsSolutions()
         {
