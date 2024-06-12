@@ -11,7 +11,7 @@ namespace LeetCodeSolutions
     {
         static void Main(string[] args)
         {
-            ValidSudoku.CallSolution();
+            RotateImage.CallSolution();
         }
         public static void SumOfRevLinkedListNumsSolutions()
         {
