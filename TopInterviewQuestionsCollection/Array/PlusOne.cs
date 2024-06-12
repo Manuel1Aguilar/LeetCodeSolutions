@@ -1,4 +1,4 @@
-namespace LeetCodeSolutions.TopInterviewQuestionsCollection.Easy 
+namespace LeetCodeSolutions.TopInterviewQuestionsCollection.Array 
 {
     public static class PlusOne
     {
@@ -14,7 +14,7 @@ namespace LeetCodeSolutions.TopInterviewQuestionsCollection.Easy
                 }
             }
             int[] res = new int[nums.Length + 1];
-            Array.Copy(nums, 0, res, 1, nums.Length);
+            System.Array.Copy(nums, 0, res, 1, nums.Length);
             res[0] = 1;
             return res;
         }

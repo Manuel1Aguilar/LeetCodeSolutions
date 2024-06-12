@@ -1,4 +1,4 @@
-namespace LeetCodeSolutions.TopInterviewQuestionsCollection.Easy
+namespace LeetCodeSolutions.TopInterviewQuestionsCollection.Array
 {
     public static class TwoSumSolution
     {

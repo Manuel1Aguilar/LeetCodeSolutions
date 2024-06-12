@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LeetCodeSolutions.TopInterviewQuestionsCollection.Easy
+namespace LeetCodeSolutions.TopInterviewQuestionsCollection.Array
 {
     public class IntersectedArrays
     {

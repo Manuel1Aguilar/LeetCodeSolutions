@@ -3,7 +3,7 @@ using LeetCodeSolutions.Advancing;
 using LeetCodeSolutions.LongestPalindromicSubstring;
 using LeetCodeSolutions.LongestSubstWoutRepeatingChars;
 using LeetCodeSolutions.MedianOfTwoSortedArr;
-using LeetCodeSolutions.TopInterviewQuestionsCollection.Easy;
+using LeetCodeSolutions.TopInterviewQuestionsCollection.Array;
 
 namespace LeetCodeSolutions
 {
