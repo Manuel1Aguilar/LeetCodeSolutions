@@ -14,9 +14,9 @@ namespace LeetCodeSolutions.Advancing
         public const string InicioDominio = "https://www.";
         public void EjemplosTiposDeDatosReferencias()
         {
-            int numer = 0;
-            char caracter = 'A';
-            bool booleano = false;
+            // int numer = 0;
+            // char caracter = 'A';
+            // bool booleano = false;
         }
         public int Sumar3Numeros(int num1, int num2, int num3)
         {
