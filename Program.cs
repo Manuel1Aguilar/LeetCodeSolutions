@@ -11,7 +11,7 @@ namespace LeetCodeSolutions
     {
         static void Main(string[] args)
         {
-            PlusOne.CallSolution();
+            TwoSumSolution.CallSolution();
         }
         public static void SumOfRevLinkedListNumsSolutions()
         {
