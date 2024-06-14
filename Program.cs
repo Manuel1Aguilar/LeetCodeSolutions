@@ -4,6 +4,7 @@ using LeetCodeSolutions.LongestPalindromicSubstring;
 using LeetCodeSolutions.LongestSubstWoutRepeatingChars;
 using LeetCodeSolutions.MedianOfTwoSortedArr;
 using LeetCodeSolutions.TopInterviewQuestionsCollection.Array;
+using LeetCodeSolutions.TopInterviewQuestionsCollection.Strings;
 
 namespace LeetCodeSolutions
 {
@@ -11,7 +12,7 @@ namespace LeetCodeSolutions
     {
         static void Main(string[] args)
         {
-            RotateImage.CallSolution();
+            ValidPalindrome.CallSolution();
         }
         public static void SumOfRevLinkedListNumsSolutions()
         {
