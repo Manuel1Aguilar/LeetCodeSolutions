@@ -12,7 +12,7 @@ namespace LeetCodeSolutions
     {
         static void Main(string[] args)
         {
-            ValidPalindrome.CallSolution();
+            StringToInteger.CallSolution();
         }
         public static void SumOfRevLinkedListNumsSolutions()
         {
