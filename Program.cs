@@ -12,7 +12,7 @@ namespace LeetCodeSolutions
     {
         static void Main(string[] args)
         {
-            StringToInteger.CallSolution();
+            LongestPrefix.CallSolution();
         }
         public static void SumOfRevLinkedListNumsSolutions()
         {
