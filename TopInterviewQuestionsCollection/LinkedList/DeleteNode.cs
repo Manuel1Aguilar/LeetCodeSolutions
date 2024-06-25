@@ -7,16 +7,8 @@ namespace LeetCodeSolutions.TopInterviewQuestionsCollection.LinkedList
     {
         private static void DeleteNodeFromLinkedList(ListNode node)
         {
-            while (node.next != null && node.next.next != null)
-            {
-                node.val = node.next.val;
-                node = node.next;
-            }
-            if (node.next != null)
-            {
-                node.val = node.next.val;
-            }
-            node.next = null;
+            node.val = node.next.val;
+            node.next = node.next.next;
         }
 
         public static void CallSolution()
