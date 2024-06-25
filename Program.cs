@@ -1,10 +1,9 @@
 ﻿using LeetCodeSolutions.AddTwoReversedLinkedListNumbers;
-using LeetCodeSolutions.Advancing;
 using LeetCodeSolutions.LongestPalindromicSubstring;
 using LeetCodeSolutions.LongestSubstWoutRepeatingChars;
 using LeetCodeSolutions.MedianOfTwoSortedArr;
-using LeetCodeSolutions.TopInterviewQuestionsCollection.Array;
-using LeetCodeSolutions.TopInterviewQuestionsCollection.Strings;
+using LeetCodeSolutions.Shared;
+using LeetCodeSolutions.TopInterviewQuestionsCollection.LinkedList;
 
 namespace LeetCodeSolutions
 {
@@ -12,7 +11,7 @@ namespace LeetCodeSolutions
     {
         static void Main(string[] args)
         {
-            LongestPrefix.CallSolution();
+            DeleteNode.CallSolution();
         }
         public static void SumOfRevLinkedListNumsSolutions()
         {
