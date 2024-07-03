@@ -4,8 +4,12 @@ namespace LeetCodeSolutions.TopInterviewQuestionsCollection.LinkedList
 {
     public static class DeleteNthFromEnd
     {
-        private static ListNode? DeleteNthNodeFromEnd(ListNode head, int n)
+        private static ListNode? DeleteNthNodeFromEnd(ListNode? head, int n)
         {
+            if(head is null)
+            {
+                return null;
+            }
             int length = 0;
             ListNode? countNode = head;
             while(countNode != null)
@@ -36,7 +40,7 @@ namespace LeetCodeSolutions.TopInterviewQuestionsCollection.LinkedList
 
         private static int[] CallDeleteNthFromEnd(int[] valList, int n)
         {
-            ListNode head = ListNodeUtils.CreateFromArray(valList);
+            ListNode? head = ListNodeUtils.CreateFromArray(valList);
             ListNode? res = DeleteNthNodeFromEnd(head, n);
             return ListNodeUtils.ToList(res!).ToArray();
         }

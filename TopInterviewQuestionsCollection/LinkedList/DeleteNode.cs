@@ -5,8 +5,12 @@ namespace LeetCodeSolutions.TopInterviewQuestionsCollection.LinkedList
 {
     public static class DeleteNode
     {
-        private static void DeleteNodeFromLinkedList(ListNode node)
+        private static void DeleteNodeFromLinkedList(ListNode? node)
         {
+            if(node is null)
+            {
+                return;
+            }
             node.val = node.next!.val;
             node.next = node.next.next;
         }
@@ -15,8 +19,8 @@ namespace LeetCodeSolutions.TopInterviewQuestionsCollection.LinkedList
         {
             int[] input;
             int[] res;
-            ListNode nodeList;
-            ListNode nodeInput;
+            ListNode? nodeList;
+            ListNode? nodeInput;
 
             Console.WriteLine("Delete List Node Tests");
 
@@ -39,7 +43,7 @@ namespace LeetCodeSolutions.TopInterviewQuestionsCollection.LinkedList
             input = [7, 3, 4, 5, 6, 8];
             nodeList = ListNodeUtils.CreateFromArray(input);
             nodeInput = ListNodeUtils.GetNthChild(nodeList, 4);
-            Console.WriteLine($"NodeInput Val: {nodeInput.val}");
+            Console.WriteLine($"NodeInput Val: {nodeInput!.val}");
             DeleteNodeFromLinkedList(nodeInput);
             res = [.. ListNodeUtils.ToList(nodeList)];
             Console.WriteLine($"Input: {string.Join(", ", input)}; Res: {string.Join(", ", res)}");

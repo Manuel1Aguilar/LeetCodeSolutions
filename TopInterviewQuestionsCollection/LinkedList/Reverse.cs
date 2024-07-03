@@ -19,14 +19,14 @@ public static class Reverse
         return pointer;
     }
 
-    private static ListNode? ReverseRecursive(ListNode head)
+    private static ListNode? ReverseRecursive(ListNode? head)
     {
         return ReverseRecursive(head, null);
     }
 
-    private static ListNode? ReverseRecursive(ListNode node, ListNode? prev)
+    private static ListNode? ReverseRecursive(ListNode? node, ListNode? prev)
     {
-        ListNode? next = node.next;
+        ListNode? next = node!.next;
         node.next = prev;
         if(next is not null)
         {
@@ -37,7 +37,7 @@ public static class Reverse
     
     private static int[] CallReverse(int[] valList)
     {
-        ListNode head = ListNodeUtils.CreateFromArray(valList);
+        ListNode? head = ListNodeUtils.CreateFromArray(valList);
         ListNode? res = ReverseRecursive(head);
         return [.. ListNodeUtils.ToList(res!)];
     }

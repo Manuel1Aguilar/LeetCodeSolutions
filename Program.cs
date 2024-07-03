@@ -11,7 +11,7 @@ namespace LeetCodeSolutions
     {
         static void Main(string[] args)
         {
-            Reverse.CallSolution();
+            LinkedListCycle.CallSolution();
         }
         public static void SumOfRevLinkedListNumsSolutions()
         {
