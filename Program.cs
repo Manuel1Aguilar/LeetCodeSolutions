@@ -11,7 +11,14 @@ namespace LeetCodeSolutions
     {
         static void Main(string[] args)
         {
-            LinkedListCycle.CallSolution();
+            int?[] treeVals = [1, 2, 3, 4, 5, 6, 7, 8];
+            TreeNode? tree = TreeNode.FromList(treeVals);
+            if(tree is null)
+            {
+                Console.WriteLine("Null Tree");
+                return;
+            }
+            tree.WriteVertical();
         }
         public static void SumOfRevLinkedListNumsSolutions()
         {
