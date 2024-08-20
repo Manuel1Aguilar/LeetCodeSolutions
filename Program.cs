@@ -3,22 +3,15 @@ using LeetCodeSolutions.LongestPalindromicSubstring;
 using LeetCodeSolutions.LongestSubstWoutRepeatingChars;
 using LeetCodeSolutions.MedianOfTwoSortedArr;
 using LeetCodeSolutions.Shared;
-using LeetCodeSolutions.TopInterviewQuestionsCollection.LinkedList;
+using LeetCodeSolutions.TopInterviewQuestionsCollection.Trees;
 
 namespace LeetCodeSolutions
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            int?[] treeVals = [1, 2, 3, 4, 5, 6, 7, 8];
-            TreeNode? tree = TreeNode.FromList(treeVals);
-            if(tree is null)
-            {
-                Console.WriteLine("Null Tree");
-                return;
-            }
-            tree.WriteVertical();
+            PalindromeTree.CallSolution();
         }
         public static void SumOfRevLinkedListNumsSolutions()
         {
