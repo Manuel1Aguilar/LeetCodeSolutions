@@ -11,7 +11,7 @@ namespace LeetCodeSolutions
     {
         static void Main()
         {
-            PalindromeTree.CallSolution();
+            LevelOrderTraversal.CallSolution();
         }
         public static void SumOfRevLinkedListNumsSolutions()
         {
