@@ -3,6 +3,7 @@ using LeetCodeSolutions.LongestPalindromicSubstring;
 using LeetCodeSolutions.LongestSubstWoutRepeatingChars;
 using LeetCodeSolutions.MedianOfTwoSortedArr;
 using LeetCodeSolutions.Shared;
+using LeetCodeSolutions.TopInterviewQuestionsCollection.Other;
 using LeetCodeSolutions.TopInterviewQuestionsCollection.Trees;
 
 namespace LeetCodeSolutions
@@ -11,7 +12,7 @@ namespace LeetCodeSolutions
     {
         static void Main()
         {
-            LevelOrderTraversal.CallSolution();
+            SortedArrayToBST.CallSolution();
         }
         public static void SumOfRevLinkedListNumsSolutions()
         {
