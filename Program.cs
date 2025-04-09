@@ -10,7 +10,7 @@ namespace LeetCodeSolutions
     {
         static void Main()
         {
-           PartitionEqualSubsetSum.CallSolution();
+           MinimumOperationsToMakeArrayValuesK.CallSolution();
         }
         public static void SumOfRevLinkedListNumsSolutions()
         {
