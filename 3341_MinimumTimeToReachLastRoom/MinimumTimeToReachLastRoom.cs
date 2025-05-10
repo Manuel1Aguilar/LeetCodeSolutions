@@ -1,0 +1,137 @@
+namespace LeetCodeSolutions;
+
+/*
+ There is a dungeon with n x m rooms arranged as a grid.
+
+You are given a 2D array moveTime of size n x m, where moveTime[i][j] represents the minimum time in seconds when you can start moving to that room. You start from the room (0, 0) at time t = 0 and can move to an adjacent room. Moving between adjacent rooms takes exactly one second.
+
+Return the minimum time to reach the room (n - 1, m - 1).
+
+Two rooms are adjacent if they share a common wall, either horizontally or vertically.
+
+*/
+
+public static class MinimumTimeToReachLastRoom {
+    
+    public static int MinTimeToReachPQ(int[][] moveTime) {
+        int n = moveTime.Length, m = moveTime[0].Length, INF = int.MaxValue;
+        var dist = new int[n, m];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                dist[i, j] = INF;
+            }
+        }
+        var pq = new PriorityQueue<(int r, int c, int t), int>();
+        dist[0, 0] = 0;
+        pq.Enqueue((0, 0, 0), 0);
+
+        int[] dr = [ 1, -1, 0, 0];
+        int[] dc = [0, 0, 1, -1];
+
+        while (pq.Count > 0) {
+            var (r, c, t) = pq.Dequeue();    
+            if (dist[r, c] != t) {
+                continue;
+            }
+
+            if ( r == n - 1 && c == m - 1) {
+                return t;
+            }
+            for (int d = 0; d < 4; d++) {
+                int newR = r + dr[d];
+                int newC = c + dc[d];
+
+                if (newR < 0 || newC < 0 || newR >= n || newC >= m) {
+                    continue;
+                }
+                int newTime = Math.Max(t, moveTime[newR][newC]) + 1;
+                if (newTime < dist[newR, newC]) {
+                    dist[newR, newC] = newTime;
+                    pq.Enqueue((newR, newC, newTime), newTime);
+                }
+            }
+        }
+        return -1;
+    }
+    public static int MinTimeToReach(int[][] moveTime) {
+        int[][] dp = new int[moveTime.Length][];
+        for (int i = 0; i < moveTime.Length; i++) {
+            dp[i] = new int[moveTime[i].Length];
+            for (int j = 0; j < dp[i].Length; j++) {
+                dp[i][j] = int.MaxValue;
+            }
+        }
+        dp[0][0] = 0;
+        bool changed = true;
+
+        while (changed) {
+            Console.WriteLine("Pass");
+            int arrivalTime = dp[^1][^1];
+            for (int i = 0; i < moveTime.Length; i++) {
+                for (int j = 0; j < moveTime[0].Length; j++) {
+                       int minAdjacent = GetMinAdjacentTime(i, j, dp);
+                       if(i + j > 0) {
+                           if(minAdjacent < moveTime[i][j]) {
+                               dp[i][j] = moveTime[i][j] + 1;
+                           } else {
+                               dp[i][j] = minAdjacent + 1;
+                           }
+                       }
+                }
+            }
+            if (dp[^1][^1] < arrivalTime) {
+                arrivalTime = dp[^1][^1];
+            } else {
+                changed = false;
+            }
+        Console.WriteLine($"DP: {string.Join(',', dp.Select(x => "[" + string.Join(',', x) + "]\n" ))};");
+        }
+
+        return dp[^1][^1];
+    }
+
+    private static int GetMinAdjacentTime(int posX, int posY, int[][]dp) {
+        int min = int.MaxValue;
+
+        if (posX > 0) {
+            if (min > dp[posX - 1][posY]) {
+                min = dp[posX - 1][posY];
+            }
+        }
+        if (posY > 0) {
+            if(min > dp[posX][posY - 1]) {
+                min = dp[posX][posY - 1];
+            }
+        }
+        if (posX < dp.Length - 1) {
+            if(min > dp[posX + 1][posY]) {
+                min = dp[posX + 1][posY];
+            }
+        }
+        if (posY < dp[posX].Length - 1) {
+            if(min > dp[posX][posY + 1]) {
+                min = dp[posX][posY + 1];
+            }
+        }
+
+        return min;
+    }
+
+    public static void CallSolution() {
+        int [][] input;
+        int output;
+        Console.WriteLine("Solution for problem 3341. Find Minimum Time to Reach Last Room I");
+
+        input = [[0,4],[4,4]];
+        output = MinTimeToReachPQ(input);
+        Console.WriteLine($"Input: {string.Join(',', input.Select(x => "[" + string.Join(',', x) + "]\n"))}; Output: {output}");
+
+        input = [[94,79, 62, 27, 69, 84],[6,32,11,82,42,30]];
+        output = MinTimeToReachPQ(input);
+        Console.WriteLine($"Input: {string.Join(',', input.Select(x => "[" + string.Join(',', x) + "]\n"))}; Output: {output}");
+
+        input = [[275,289,370,277,369,258,85],[78,231,82,428,339,489,214],[440,480,166,222,134,492,146],[3,122,16,218,500,166,225]];
+        output = MinTimeToReachPQ(input);
+        Console.WriteLine($"Input: {string.Join(',', input.Select(x => "[" + string.Join(',', x) + "]\n"))}; Output: {output}");
+    }
+}

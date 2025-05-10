@@ -8,12 +8,13 @@ namespace LeetCodeSolutions
 {
     internal class Program
     {
+
         static void Main()
         {
-           MinimumOperationsToMakeArrayValuesK.CallSolution();
+           MinimumTimeToReachLastRoom.CallSolution(); 
         }
-        public static void SumOfRevLinkedListNumsSolutions()
-        {
+        
+        public static void SumOfRevLinkedListNumsSolutions() {
             SumOfTwoReversedLinkedListNumbers sumClass = new();
             ListNode? firstList = sumClass.CreateNodes([2, 4, 3]);
             ListNode? secondList = sumClass.CreateNodes([5, 6, 4]);
@@ -25,6 +26,7 @@ namespace LeetCodeSolutions
             secondList = sumClass.CreateNodes([9,9,9,9]);
             res = sumClass.AddTwoNumbers(firstList!, secondList!);
         }
+
         public static void MedianOfTwoSortedArraysSolutions()
         {
             MedianOfTwoSortedArrays median = new();
@@ -41,6 +43,7 @@ namespace LeetCodeSolutions
             nums2 = [4, 6, 8, 12];
             Console.WriteLine($"For arrays {string.Join(',', nums1)} and {string.Join(',', nums2)} the solution is {median.FindMedianSortedArrays(nums1, nums2)}");
         }
+
         public static void LongestSubstSolutions()
         {
             LongestSubstWithoutRepeatingChars repeatingChars = new();
