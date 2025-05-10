@@ -124,14 +124,14 @@ public static class MinimumTimeToReachLastRoom {
 
         input = [[0,4],[4,4]];
         output = MinTimeToReachPQ(input);
-        Console.WriteLine($"Input: {string.Join(',', input.Select(x => "[" + string.Join(',', x) + "]\n"))}; Output: {output}");
+        Console.WriteLine($"Input: {string.Join(',', input.Select(x => "[" + string.Join(',', x) + "]\n"))}; \nOutput: {output}");
 
         input = [[94,79, 62, 27, 69, 84],[6,32,11,82,42,30]];
         output = MinTimeToReachPQ(input);
-        Console.WriteLine($"Input: {string.Join(',', input.Select(x => "[" + string.Join(',', x) + "]\n"))}; Output: {output}");
+        Console.WriteLine($"Input: {string.Join(',', input.Select(x => "[" + string.Join(',', x) + "]\n"))}; \nOutput: {output}");
 
         input = [[275,289,370,277,369,258,85],[78,231,82,428,339,489,214],[440,480,166,222,134,492,146],[3,122,16,218,500,166,225]];
         output = MinTimeToReachPQ(input);
-        Console.WriteLine($"Input: {string.Join(',', input.Select(x => "[" + string.Join(',', x) + "]\n"))}; Output: {output}");
+        Console.WriteLine($"Input: {string.Join(',', input.Select(x => "[" + string.Join(',', x) + "]\n"))}; \nOutput: {output}");
     }
 }
