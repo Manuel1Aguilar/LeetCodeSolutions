@@ -11,7 +11,7 @@ namespace LeetCodeSolutions
 
         static void Main()
         {
-           MinimumTimeToReachLastRoomII.CallSolution(); 
+            MinEqTwoArrayReplacingZeros.CallSolution(); 
         }
         
         public static void SumOfRevLinkedListNumsSolutions() {
