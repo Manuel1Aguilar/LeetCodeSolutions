@@ -11,7 +11,7 @@ namespace LeetCodeSolutions
 
         static void Main()
         {
-            MinEqTwoArrayReplacingZeros.CallSolution(); 
+            SortColors.CallSolution(); 
         }
         
         public static void SumOfRevLinkedListNumsSolutions() {
