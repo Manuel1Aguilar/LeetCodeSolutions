@@ -4,11 +4,33 @@ public static class TotalCharsInStringAfterTransformsII {
     private const long MOD = 1_000_000_007;
     private static int LengthAfterTransformations(string s, int t, IList<int> nums) {
         // Define transformation matrix
-        
-        // Exponentiate matrix to t
-
+        int[][] transformation = new int[27][];
+        for (int i = 0; i < transformation.Length; i++) {
+            transformation[i] = new int[27];
+        }
+        for (int i = 0; i < 26; i++) {
+            int ts = nums[i];
+            for (int j = 1; j <= ts; j++) {
+                transformation[(i + j) % 26][i]++;
+                transformation[26][i]++;
+            }
+        }
+        transformation[26][26] = 1;
+        // Exponentiate matrix to transformations
+        var transformed = FastMatrixExponentiation(transformation, t);
+        Console.WriteLine($"Transformation Line: {string.Join(',', transformation[26])}");
         // Return amount of chars per char in s after t transformations from matrix
-        return 0;
+        int[] v0 =  new int[27];
+        foreach (char c in s) {
+            v0[c - 'a']++;
+        }
+        v0[26] = s.Length;
+        Console.WriteLine($"V0: {string.Join(',', v0)}");
+        int total = 0;
+        for (int i = 0; i < 26; i++) {
+            total =  total + (int)(transformed[26][i] * v0[i] % MOD);
+        }
+        return total;
     }
 
     private static int[][] MultiplyMatrix(int[][] A, int[][] B) {
@@ -33,7 +55,6 @@ public static class TotalCharsInStringAfterTransformsII {
     private static int[][] FastMatrixExponentiation(int[][] M, int exponent) {
         var result = IdentityMatrix(M);
         var power = DeepClone(M);
-
         while (exponent > 0) {
             if (exponent % 2 > 0) {
                 result = MultiplyMatrix(result, power);
@@ -66,6 +87,25 @@ public static class TotalCharsInStringAfterTransformsII {
             I[i][i] = 1;
         }
         return I;
+    }
+
+
+    public static void CallSolution() {
+        string sInput;
+        int tInput;
+        int[] nInput;
+
+        Console.WriteLine("3337. Total Characters in String After Transformations II Solution:");
+
+        tInput = 2;
+        sInput = "abcyy";
+        nInput = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2];
+        Console.WriteLine($"Inputs: s {sInput}, t {tInput}, nums {string.Join(',', nInput)}; Output: { LengthAfterTransformations(sInput, tInput, nInput)}");
+
+        tInput = 1;
+        sInput = "azbk";
+        nInput = [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2];
+        Console.WriteLine($"Inputs: s {sInput}, t {tInput}, nums {string.Join(',', nInput)}; Output: { LengthAfterTransformations(sInput, tInput, nInput)}");
     }
 
 }

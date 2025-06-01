@@ -49,13 +49,36 @@ public static class SortColors {
         }
     }
 
+    private static void DutchProblemSort(int[] nums) {
+        int low = 0, mid = 0, high = nums.Length - 1;
+
+        while (mid <= high) {
+            if (nums[mid] == 0) {
+                Swap(mid, low, nums);
+                low++;
+                mid++;
+            } else if (nums[mid] == 1) {
+                mid++;
+            } else {
+                Swap(mid, high, nums);
+                high--;
+            }
+        }
+    }
+
+    private static void Swap(int i, int j, int[] nums) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+
     public static void CallSolution() {
         int[] input;
         Console.WriteLine("75. Sort Colors Solution:");
 
         input = [2, 0, 2, 1, 1, 0];
         Console.Write($"Input: {string.Join(',', input)}\n");
-        CountSort(input);
+        DutchProblemSort(input);
         Console.Write($"; Output: {string.Join(',', input)}\n");
     }
 }
