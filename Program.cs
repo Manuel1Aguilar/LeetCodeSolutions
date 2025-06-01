@@ -11,7 +11,7 @@ namespace LeetCodeSolutions
 
         static void Main()
         {
-            TypeOfTriangle.CallSolution(); 
+            TotalCharsInStringAfterTransformsII.CallSolution(); 
         }
         
         public static void SumOfRevLinkedListNumsSolutions() {

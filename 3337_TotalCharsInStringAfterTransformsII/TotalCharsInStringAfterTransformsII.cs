@@ -11,26 +11,29 @@ public static class TotalCharsInStringAfterTransformsII {
         for (int i = 0; i < 26; i++) {
             int ts = nums[i];
             for (int j = 1; j <= ts; j++) {
-                transformation[(i + j) % 26][i]++;
-                transformation[26][i]++;
+                transformation[(i + j) % 26][i] = 1;
             }
+            
+            transformation[26][i] = ts;
         }
-        transformation[26][26] = 1;
+         transformation[26][26] = 0;
         // Exponentiate matrix to transformations
         var transformed = FastMatrixExponentiation(transformation, t);
-        Console.WriteLine($"Transformation Line: {string.Join(',', transformation[26])}");
         // Return amount of chars per char in s after t transformations from matrix
-        int[] v0 =  new int[27];
-        foreach (char c in s) {
+        long[] v0 = new long[27];
+        foreach(char c in s) {
             v0[c - 'a']++;
         }
         v0[26] = s.Length;
-        Console.WriteLine($"V0: {string.Join(',', v0)}");
-        int total = 0;
-        for (int i = 0; i < 26; i++) {
-            total =  total + (int)(transformed[26][i] * v0[i] % MOD);
+
+        // Multiply it by the last row (len) of the transformation matrix after t transformations
+        // (The len row was used to hold how many extra characters each original character yielded after t transforms so multiplying by the qty of each
+        // character I have originally means I get how many characters each char means at the end)
+        long totalLen = 0;
+        for (int i = 0; i < 27; i++) {
+            totalLen = (totalLen + v0[i] * transformed[26][i] % MOD) % MOD;
         }
-        return total;
+        return ((int)totalLen);
     }
 
     private static int[][] MultiplyMatrix(int[][] A, int[][] B) {
@@ -45,7 +48,7 @@ public static class TotalCharsInStringAfterTransformsII {
             for (int k = 0; k < m; k++) {
                 if (A[i][k] == 0) continue;
                 for (int j = 0; j < z; j++) {
-                    C[i][j] += A[i][k] * B[k][j];
+                    C[i][j] = (int)((C[i][j] + (long)A[i][k] * B[k][j] % MOD) % MOD);
                 }
             }
         }
